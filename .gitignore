@@ -1,1 +1,5 @@
-target/
+Thumbs.db
+*.exe
+*.bak
+*.orig
+*.log

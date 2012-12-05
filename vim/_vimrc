@@ -1,0 +1,135 @@
+let $LANG = "en_US.UTF-8"
+set enc=utf-8
+
+colors desert
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 1 important
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" compatible    behave very Vi compatible (not advisable)
+set nocompatible
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 4 displaying text
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" cmdheight     number of lines used for the command-line
+set ch=2
+" list          show whitespace
+set list
+" listchars     list of strings used for list mode
+set lcs=eol:¶,tab:»\ ,trail:·
+" number        show the line number for each line
+set nu
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 5 syntax, highlighting and spelling
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Switch syntax highlighting on
+syntax on
+" hlsearch      highlight all matches for the last used search pattern
+set hls
+" cursorline    highlight the screen line of the cursor
+set cul
+" colorcolumn   columns to highlight
+set cc=80
+" spell         highlight spelling mistakes
+set spell
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 6 multiple windows
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" laststatus    0, 1 or 2; when to use a status line for the last window
+set ls=2
+" statusline    alternate format to be used for a status line
+set stl=%t          " tail of the filename
+set stl+=\ %y       " file type
+set stl+=%=         " left/right separator
+set stl+=[%{strlen(&fenc)?&fenc:'none'} " file encoding
+set stl+=%{&bomb?',BOM':''}, "BOM"
+set stl+=%{&ff}]    " file format
+set stl+=\ row:%l/%L " cursor line/total lines
+set stl+=\ (%P)     " percent through file
+set stl+=\ col:%c   " cursor column
+set stl+=\ %m       " modified flag
+set stl+=%r         " readonly flag
+set stl+=%w         " preview flag
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 10 GUI
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" guifont       list of font names to be used in the GUI
+set gfn=Inconsolata:h12,Monospace:h12
+" guifontwide   list of font names to be used for double-wide characters
+set gfw=WenQuanYi\ Micro\ Hei\ Mono:h12,NSimSun:h12
+" guioptions    list of flags that specify how the GUI works
+set go=aegimrLtT
+" langmenu      language to be used for the menus
+set langmenu=en_US.UTF-8
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 15 tabs and indenting
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" tabstop       number of spaces a <Tab> in the text stands for
+set ts=4
+" shiftwidth    number of spaces used for each step of (auto)indent
+set sw=4
+" smarttab      a <Tab> in an indent inserts 'shiftwidth' spaces
+set sta
+" expandtab     expand <Tab> to spaces in Insert mode
+set et
+" autoindent    automatically set the indent of a new line
+set ai
+" smartindent   do clever autoindenting
+set si
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 18 mapping
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Shift Tab
+inoremap <S-Tab> <C-D>
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 19 reading and writing files
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fileformat    end-of-line format: 'dos', 'unix' or 'mac'
+set ff=unix
+" fileformats   list of file formats to look for when editing a file
+set ffs=unix,dos
+" writebackup   write a backup file before overwriting a file
+set nowb
+" backup        keep a backup after overwriting a file
+set nobk
+" swapfile      use a swap file for this buffer
+set noswf
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 26 multi-byte characters
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fileencoding  character encoding for the current file (local to buffer)
+set fenc=utf-8
+" termencoding  character encoding used by the terminal
+set tenc=utf-8
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Auto command
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set *.md filetype to markdown
+au BufNewFile,BufRead *.md set filetype=markdown
+
+
+
+
+
+source $VIMRUNTIME/mswin.vim
+behave mswin
+

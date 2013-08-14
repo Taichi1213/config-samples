@@ -9,33 +9,22 @@ import zipfile
 if len(sys.argv) < 2:
     print u'Please specify a zip file.'
 else:
-    print 'Processing File ' + sys.argv[1]
+    zipFileName = sys.argv[1]
+    print 'Processing File ' + zipFileName
 
-    zipFile = zipfile.ZipFile(sys.argv[1], 'r')
-    listFile = open('unzip-list.txt', 'wb');
-    names = zipFile.namelist()
+    zipFile = zipfile.ZipFile(zipFileName, 'r')
+    listFile = open('unzip-' + zipFileName + '.txt', 'wb');
+    zipInfos = zipFile.infolist()
 
-    for name in names:
-        decodedName = name.decode('gbk')
+    for zipInfo in zipInfos:
+        filename = zipInfo.filename.decode('gbk')
 
-        print 'Extracting ' + decodedName.encode('mbcs')
-
-        # create directory
-        pathname = os.path.dirname(decodedName)
-
-        if not os.path.exists(pathname) and pathname != '':
-            os.makedirs(pathname)
-
-        # create file
-        data = zipFile.read(name)
-
-        if not os.path.exists(decodedName):
-            fo = open(decodedName, 'w')
-            fo.write(data)
-            fo.close
+        print 'Extracting ' + filename.encode('mbcs')
+        zipInfo.filename = filename
+        zipFile.extract(zipInfo)
 
         # write log
-        listFile.write('%s\n' % decodedName.encode('utf8'))
+        listFile.write('%s\n' % filename.encode('utf8'))
 
     zipFile.close()
     listFile.close()

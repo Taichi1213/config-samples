@@ -1,7 +1,13 @@
 let $LANG = "en_US.UTF-8"
-set enc=utf-8
+set encoding=utf-8
 
 colors desert
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Reference:
+"       :opt
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -12,16 +18,35 @@ set nocompatible
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 2 moving around, searching and patterns
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" incsearch     show match for partly typed search command
+set incsearch
+
+" ignorecase    ignore case when using a search pattern
+set ignorecase
+
+" smartcase     override 'ignorecase' when pattern has upper case characters
+set smartcase
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 4 displaying text
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" wrap          long lines wrap
+set wrap
+" linebreak     wrap long lines at a character in 'breakat'
+set linebreak
 " cmdheight     number of lines used for the command-line
-set ch=2
-" list          show whitespace
+set cmdheight=2
+" lazyredraw    don't redraw while executing macros
+set lazyredraw
+" list          show <Tab> and end-of-line
 set list
 " listchars     list of strings used for list mode
-set lcs=eol:¶,tab:»\ ,trail:·
+set listchars=eol:¶,tab:»\ ,trail:·
 " number        show the line number for each line
-set nu
+set number
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -29,12 +54,15 @@ set nu
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Switch syntax highlighting on
 syntax on
+
+" background    'dark' or 'light'; the background color brightness
+set background=dark
 " hlsearch      highlight all matches for the last used search pattern
-set hls
+set hlsearch
 " cursorline    highlight the screen line of the cursor
-set cul
+set cursorline
 " colorcolumn   columns to highlight
-set cc=80
+set colorcolumn=80
 " spell         highlight spelling mistakes
 set spell
 
@@ -43,50 +71,68 @@ set spell
 " => 6 multiple windows
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " laststatus    0, 1 or 2; when to use a status line for the last window
-set ls=2
+set laststatus=2
 " statusline    alternate format to be used for a status line
-set stl=%t          " tail of the filename
-set stl+=\ %y       " file type
-set stl+=%=         " left/right separator
-set stl+=[%{strlen(&fenc)?&fenc:'none'} " file encoding
-set stl+=%{&bomb?',BOM':''}, "BOM"
-set stl+=%{&ff}]    " file format
-set stl+=\ row:%l/%L " cursor line/total lines
-set stl+=\ (%P)     " percent through file
-set stl+=\ col:%c   " cursor column
-set stl+=\ %m       " modified flag
-set stl+=%r         " readonly flag
-set stl+=%w         " preview flag
+set statusline=%t          " tail of the filename
+set statusline+=\ %y       " file type
+set statusline+=%=         " left/right separator
+set statusline+=[%{strlen(&fenc)?&fenc:'none'} " file encoding
+set statusline+=%{&bomb?',BOM':''}, "BOM"
+set statusline+=%{&ff}]    " file format
+set statusline+=\ row:%l/%L " cursor line/total lines
+set statusline+=\ (%P)     " percent through file
+set statusline+=\ col:%c   " cursor column
+set statusline+=\ %m       " modified flag
+set statusline+=%r         " readonly flag
+set statusline+=%w         " preview flag
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 10 GUI
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " guifont       list of font names to be used in the GUI
-set gfn=Inconsolata:h12,Monospace:h12
+set guifont=Inconsolata:h12,Monospace:h12
 " guifontwide   list of font names to be used for double-wide characters
-set gfw=WenQuanYi\ Micro\ Hei\ Mono:h12,NSimSun:h12
+set guifontwide=WenQuanYi\ Micro\ Hei\ Mono:h12,NSimSun:h12
 " guioptions    list of flags that specify how the GUI works
-set go=aegimrLtT
+set guioptions=aegimrLtT
 " langmenu      language to be used for the menus
 set langmenu=en_US.UTF-8
+" linespace     number of pixel lines to use between characters
+set linespace=1
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 12 messages and info
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ruler         show cursor position below each window
+set ruler
+" showmatch     when inserting a bracket, briefly jump to its match
+set showmatch
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 14 editing text
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" textwidth     line length above which to break a line
+set textwidth=0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 15 tabs and indenting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " tabstop       number of spaces a <Tab> in the text stands for
-set ts=4
+set tabstop=4
 " shiftwidth    number of spaces used for each step of (auto)indent
-set sw=4
+set shiftwidth=4
 " smarttab      a <Tab> in an indent inserts 'shiftwidth' spaces
-set sta
+set smarttab
 " expandtab     expand <Tab> to spaces in Insert mode
-set et
+set expandtab
 " autoindent    automatically set the indent of a new line
-set ai
+set autoindent
 " smartindent   do clever autoindenting
-set si
+set smartindent
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,24 +146,43 @@ inoremap <S-Tab> <C-D>
 " => 19 reading and writing files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fileformat    end-of-line format: 'dos', 'unix' or 'mac'
-set ff=unix
+set fileformat=unix
 " fileformats   list of file formats to look for when editing a file
-set ffs=unix,dos
+set fileformats=unix,dos
 " writebackup   write a backup file before overwriting a file
-set nowb
+set nowritebackup
 " backup        keep a backup after overwriting a file
-set nobk
+set nobackup
 " swapfile      use a swap file for this buffer
-set noswf
+set noswapfile
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 21 command line editing
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" history       how many command lines are remembered
+set history=200
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 26 multi-byte characters
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" encoding      character encoding used in Vim: 'latin1', 'utf-8'
+"               'euc-jp', 'big5', etc.
+"set encoding=utf-8
 " fileencoding  character encoding for the current file (local to buffer)
-set fenc=utf-8
+set fileencoding=utf-8
 " termencoding  character encoding used by the terminal
-set tenc=utf-8
+set termencoding=utf-8
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 27 various
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" gdefault      use the 'g' flag for ':substitute'
+set gdefault
+" edcompatible  'g' and 'c' flags of ':substitute' toggle
+set noedcompatible
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -130,6 +195,9 @@ au BufNewFile,BufRead *.md set filetype=markdown
 
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Miscellaneous
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source $VIMRUNTIME/mswin.vim
 behave mswin
 

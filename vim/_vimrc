@@ -22,10 +22,8 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " incsearch     show match for partly typed search command
 set incsearch
-
 " ignorecase    ignore case when using a search pattern
 set ignorecase
-
 " smartcase     override 'ignorecase' when pattern has upper case characters
 set smartcase
 
@@ -44,9 +42,12 @@ set lazyredraw
 " list          show <Tab> and end-of-line
 set list
 " listchars     list of strings used for list mode
-set listchars=eol:¶,tab:»\ ,trail:·
+set listchars=trail:·,tab:»\ ,eol:¶
 " number        show the line number for each line
 set number
+" relativenumber    show the relative line number for each line
+set relativenumber
+
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -86,6 +87,17 @@ set statusline+=\ %m       " modified flag
 set statusline+=%r         " readonly flag
 set statusline+=%w         " preview flag
 
+" hidden        don't unload a buffer when no longer shown in a window
+set hidden
+
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => 8 terminal
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+"ttyfast        terminal connection is fast
+set ttyfast
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 10 GUI
@@ -105,17 +117,24 @@ set linespace=1
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 12 messages and info
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" showcmd       show (partial) command keys in the status line
+set showcmd
+" showmode      display the current mode in the status line
+set showmode
 " ruler         show cursor position below each window
 set ruler
 " showmatch     when inserting a bracket, briefly jump to its match
 set showmatch
-
+" visualbell    use a visual bell instead of beeping
+set visualbell
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 14 editing text
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " textwidth     line length above which to break a line
 set textwidth=0
+" backspace     specifies what <BS>, CTRL-W, etc. can do in Insert mode
+set backspace=indent,eol,start
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -127,6 +146,8 @@ set tabstop=4
 set shiftwidth=4
 " smarttab      a <Tab> in an indent inserts 'shiftwidth' spaces
 set smarttab
+" softtabstop   if non-zero, number of spaces to insert for a <Tab>
+set softtabstop=4
 " expandtab     expand <Tab> to spaces in Insert mode
 set expandtab
 " autoindent    automatically set the indent of a new line
@@ -141,10 +162,28 @@ set smartindent
 " Shift Tab
 inoremap <S-Tab> <C-D>
 
+" Tab           move around match bracket pairs
+nnoremap <Tab> %
+vnoremap <Tab> %
+
+
+let mapleader = ","
+
+" ,<Space>      clear out a search
+nnoremap <Leader><Space> :noh<CR>
+
+" ,w            open a new vertical split and switch over to it
+nnoremap <Leader>w <C-W>v<C-W>l
+
+" ,W            strip all trailing whitespace in the current file
+nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => 19 reading and writing files
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" modelines     number of lines to check for modelines
+set modelines=0
 " fileformat    end-of-line format: 'dos', 'unix' or 'mac'
 set fileformat=unix
 " fileformats   list of file formats to look for when editing a file
@@ -162,6 +201,12 @@ set noswapfile
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " history       how many command lines are remembered
 set history=200
+" wildmode      specifies how command line completion works
+set wildmode=list:longest
+" wildmenu      command-line completion shows a list of matches
+set wildmenu
+" undofile      automatically save and restore undo history
+set undofile
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -191,8 +236,8 @@ set noedcompatible
 " set *.md filetype to markdown
 au BufNewFile,BufRead *.md set filetype=markdown
 
-
-
+" save on losing focus
+au FocusLost * :wa
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

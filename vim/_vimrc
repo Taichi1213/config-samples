@@ -172,11 +172,21 @@ let mapleader = ","
 " ,<Space>      clear out a search
 nnoremap <Leader><Space> :noh<CR>
 
-" ,w            open a new vertical split and switch over to it
-nnoremap <Leader>w <C-W>v<C-W>l
+" ,w            strip all trailing whitespace in the current file
+nnoremap <Leader>w :%s/\s\+$//<CR>
 
-" ,W            strip all trailing whitespace in the current file
-nnoremap <Leader>W :%s/\s\+$//<CR>:let @/=''<CR>
+" ,S            sort CSS properties
+"
+" ==== Instruction ====
+"
+" ?{<CR>        search previous {
+" j             move down 1 line
+" V             enter Visual Line mode
+" /^\s*\}$<CR>  find end }, maybe has leading spaces
+" k             move up 1 line
+" :sort<CR>     sort lines
+" :noh<CR>      clear highlight search results
+nnoremap <Leader>S ?{<CR>jV/^\s*\}$<CR>k:sort<CR>:noh<CR>
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

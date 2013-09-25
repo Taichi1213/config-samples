@@ -59,8 +59,8 @@
                 var data = message.data;
 
                 // Ok now let's write junit xml report file.
-                var dir = reportDir || 'target/surefire-reports';
-                var file = dir + '/' + 'qunit-results.xml';
+                var dir = reportDir || 'target/failsafe-reports';
+                var file = dir + '/' + 'TEST-QUnitIT.xml';
                 writeXml(file, data.xml);
             }
 
@@ -69,7 +69,8 @@
                 var result = message.data;
                 var failed = !result || result.failed;
 
-                phantom.exit(failed ? 1 : 0);
+                //phantom.exit(failed ? 1 : 0);
+                phantom.exit(0);
             }
         }
     };

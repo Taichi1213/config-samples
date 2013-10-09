@@ -51,11 +51,11 @@
   <!-- Context params to control Session Cookies                            -->
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  -->
   <!--
-    UNCOMMENT TO ACTIVATE 
-    <context-param> 
-      <param-name>org.eclipse.jetty.servlet.SessionDomain</param-name> 
-      <param-value>127.0.0.1</param-value> 
-    </context-param> 
+    UNCOMMENT TO ACTIVATE
+    <context-param>
+      <param-name>org.eclipse.jetty.servlet.SessionDomain</param-name>
+      <param-value>127.0.0.1</param-value>
+    </context-param>
     <context-param>
       <param-name>org.eclipse.jetty.servlet.SessionPath</param-name>
       <param-value>/</param-value>
@@ -112,7 +112,7 @@
  *
  *  aliases           If True, aliases of resources are allowed (eg. symbolic
  *                    links and caps variations). May bypass security constraints.
- *                    
+ *
  *  etags             If True, weak etags will be generated and handled.
  *
  *  maxCacheSize      The maximum total size of the cache or 0 for no cache.

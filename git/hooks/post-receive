@@ -1,0 +1,4 @@
+#!/bin/sh
+# Push notification from repository to poke Jenkins when a new commit is made.
+
+curl http://cnpvg50809797vm10.dhcp.pvgl.sap.corp:8080/jenkins/git/notifyCommit?url=ssh://git@cnpvg50809797vm10.dhcp.pvgl.sap.corp/~/tam-web.git

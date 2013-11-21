@@ -1,3 +1,20 @@
+# Java Class
+*.class
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Eclipse Project Files
+.settings
+.project
+.classpath
+
+# Maven
+target/
+
+# Log, Backup, Executable Files
 Thumbs.db
 *.exe
 *.bak

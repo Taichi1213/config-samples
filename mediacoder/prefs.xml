@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaCoderPrefs>
+    <node key="overall.ui.mode">Advanced</node>
+    <node key="overall.ui.console">true</node>
+    <node key="overall.ui.param">800,736,320,62</node>
+    <node key="overall.ui.noWelcome">5560</node>
+    <node key="overall.audio.channels">Original</node>
+    <node key="overall.audio.format">Vorbis</node>
+    <node key="overall.audio.encoder">Vorbis</node>
+    <node key="overall.video.mode">VBR</node>
+    <node key="overall.video.quality">55</node>
+    <node key="overall.container.format">MKV</node>
+    <node key="overall.container.muxer">MKVMerge</node>
+    <node key="overall.streaming.ip">192.168.1.5</node>
+    <node key="audioenc.lame.path">codecs64\lame.exe</node>
+    <node key="audioenc.vorbis.path">codecs64\oggenc2.exe</node>
+    <node key="audioenc.fraunhofer.path">codecs64\mp3sEncoder.exe</node>
+    <node key="audioenc.musepack.path">codecs64\mpcenc.exe</node>
+    <node key="audioenc.ffmpeg.path">codecs64\ffmpeg.exe</node>
+    <node key="audioenc.aac3gpp.path">codecs64\enhAacPlusEnc.exe</node>
+    <node key="audioenc.wavpack.path">codecs64\wavpack.exe</node>
+    <node key="audioenc.wavpack.decoderPath">codecs64\wvunpack.exe</node>
+    <node key="audioenc.flac.path">codecs64\flac.exe</node>
+    <node key="videofilter.deint.mode">Disabled</node>
+</MediaCoderPrefs>

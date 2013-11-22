@@ -1,0 +1,14 @@
+{
+    "color_scheme": "Packages/Color Scheme - Default/Dawn.tmTheme",
+    "font_size": 11,
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": true,
+
+    // Set to "none" to turn off drawing white space, "selection" to draw only the
+    // white space within the selection, and "all" to draw all white space
+    "draw_white_space": "all",
+
+    // Controls what scopes auto complete will be triggered in)
+    "auto_complete_selector": "source - comment, meta.tag - punctuation.definition.tag.begin"
+}

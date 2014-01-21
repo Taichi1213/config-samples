@@ -2,13 +2,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                         http://maven.apache.org/xsd/settings-1.0.0.xsd">
-    <localRepository/>
-    <interactiveMode/>
-    <usePluginRegistry/>
-    <offline/>
-    <pluginGroups/>
-    <servers/>
-    <mirrors/>
     <proxies>
         <proxy>
             <id>sin</id>
@@ -21,6 +14,32 @@
             <nonProxyHosts>*.sap.corp|sap.de</nonProxyHosts>
         </proxy>
     </proxies>
-    <profiles/>
-    <activeProfiles/>
+    <profiles>
+        <profile>
+            <id>release.build</id>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>central</id>
+                    <url>http://repo1.maven.org/maven2</url>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>release</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases/</url>
+                </pluginRepository>
+            </pluginRepositories>
+            <repositories>
+                <repository>
+                    <id>central</id>
+                    <url>http://repo1.maven.org/maven2</url>
+                </repository>
+                <repository>
+                    <id>release</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+    <activeProfiles>
+        <activeProfile>release.build</activeProfile>
+    </activeProfiles>
 </settings>

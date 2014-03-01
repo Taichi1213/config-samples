@@ -26,6 +26,14 @@
                     <id>release</id>
                     <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases/</url>
                 </pluginRepository>
+                <pluginRepository>
+                    <id>milestone</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.milestones/</url>
+                </pluginRepository>
+                <pluginRepository>
+                    <id>snapshot</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.snapshots/</url>
+                </pluginRepository>
             </pluginRepositories>
             <repositories>
                 <repository>
@@ -35,6 +43,14 @@
                 <repository>
                     <id>release</id>
                     <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.releases/</url>
+                </repository>
+                <repository>
+                    <id>milestone</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.milestones/</url>
+                </repository>
+                <repository>
+                    <id>snapshot</id>
+                    <url>http://nexus.wdf.sap.corp:8081/nexus/content/groups/build.snapshots/</url>
                 </repository>
             </repositories>
         </profile>

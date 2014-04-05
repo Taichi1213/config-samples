@@ -17,7 +17,7 @@ target/
 # Log, Backup, Executable Files
 Thumbs.db
 *.exe
-*.bak
+#*.bak
 *.orig
 *.log
 *.un~

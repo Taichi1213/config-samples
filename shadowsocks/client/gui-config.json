@@ -1,0 +1,20 @@
+{
+"configs" : [{
+"server" : "107.182.179.197",
+"server_port" : 8387,
+"local_port" : 1080,
+"password" : "savageboy",
+"method" : "aes-256-cfb",
+"remarks" : "savageboy"}
+,{
+"server" : "23.244.180.26",
+"server_port" : 8989,
+"local_port" : 1080,
+"password" : "airwrt.com",
+"method" : "aes-256-cfb",
+"remarks" : "airwrt.com"}
+],
+"index" : 0,
+"enabled" : true,
+"shareOverLan" : false,
+"isDefault" : false}

@@ -27,7 +27,7 @@ Create `/etc/shadowsocks.json`
     "local_port": 1080,
     "password": "mypassword",
     "timeout": 300,
-    "method": "rc4-md5",
+    "method": "aes-256-cfb",
     "fast_open": false,
     "workers": 2
 }

@@ -5,10 +5,17 @@
       "server_port" : 443,
       "password" : "savageboy",
       "method" : "aes-256-cfb",
-      "remarks" : "savageboy"
+      "remarks" : "Bandwagon - 5G PROMO V2"
+    },
+    {
+      "server" : "45.62.103.223",
+      "server_port" : 443,
+      "password" : "savageboy",
+      "method" : "aes-256-cfb",
+      "remarks" : "Bandwagon - Micro-64"
     }
   ],
-  "index" : 0,
+  "index" : 1,
   "global" : false,
   "enabled" : true,
   "shareOverLan" : false,
